@@ -1,0 +1,63 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    Your Shopping Cart| Checkout
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row" style="margin-top: 6%">
+            <div class="col-md-4 col-xs-12">
+                <table class="table">
+  <thead>
+    <tr>
+      <th scope="col-8">Delivery Address</th>
+      <th scope="col-4"><div  style="color:white; text-decoration: none;"><a class="btn btn-danger btn-sm" href="{% url 'profile' %}">Change</a></div></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for customer in delivery %}
+      <tr><td><strong>Name:</strong> {{customer.name}}</td></tr>
+      <tr><td><strong>Phone:</strong> {{customer.phone}}</td></tr>
+      <tr><td><strong>Street:</strong> {{customer.street}}</td></tr>
+      <tr><td><strong>City:</strong> {{customer.city}}</td></tr>
+      <tr><td><strong>Pincode:</strong> {{customer.pincode}}</td></tr>
+    {% endfor %}
+   
+</tbody>
+</table></div>
+                
+      <div class="col-md-4 col-xs-12">
+                <div class="page-header">
+                    Your Order
+                </div>
+                <ul class="list-group">
+                    {% for item in cart %}
+                        <li class="list-group-item">
+                        {{ item.quantity }}x {{ item.product.name }}
+                        <span><i class="fa fa-inr" style="color:#FFF;"></i> {{ item.total_price }}</span>
+                        </li>
+                    {% endfor %}
+
+                <li class="list-group-item active">Total Cost: <i class="fa fa-inr" style="color:#FFF;"></i> {{ cart.get_total_price }} +{{20}} delivery charges</li>
+                </ul>
+
+            </div>
+             <div class="col-md-4 col-xs-12">
+                <h4 class="page-header">Checkout</h4>
+                <form action="." method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}<br>
+                    {% if cart|length > 0 %}
+                    <input type="submit" class="btn btn-danger btn-sm" value="Confirm Order">
+                    {% else%}
+                    <div class="btn btn-default">
+                        Your cart is Empty
+                    </div>
+                    {%endif%}
+                </form>
+            </div>
+    </div>
+</div>
+       </div>
+{% endblock %}
