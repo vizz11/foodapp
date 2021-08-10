@@ -38,7 +38,7 @@ class ProfileView(UpdateView):
     template_name = 'registration/profile.html'
 
     def get_success_url(self):
-        return reverse('product_list')
+        return reverse('orders:order_create')
 
     def get_object(self):
         return self.request.user
