@@ -37,10 +37,5 @@ urlpatterns = [
     path('cart', include('cart.urls')),
     path('orders/', include('orders.urls')),
     path('', include('shop.urls')),
-]   if settings.DEBUG:
-      from django.conf.urls.static import static
-      from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
-      urlpatterns += staticfiles_urlpatterns()
-      urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]  += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
