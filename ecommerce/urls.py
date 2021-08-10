@@ -35,7 +35,7 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('cart', include('cart.urls')),
-    path('orders/', include('orders.urls')),
-    path('', include('shop.urls')),
-]  += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('orders/', include('orders.urls',namespace='orders')),
+    path('', include('shop.urls',namespace='shop')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
