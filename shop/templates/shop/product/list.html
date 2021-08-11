@@ -13,7 +13,7 @@
           <div class="blog-post">
               <div class="row text-center" style="margin-top:6%">
                   {% for product in products %}
-                      <div class="col-md-4 col-xs-12">
+                      <div class="col-md-4 col-xs-6">
                         <div style="margin-top:6%">
                             <a href="{{ product.get_absolute_url }}">
                                 <img class="img-fluid" src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 130px; width: auto;">
