@@ -14,6 +14,8 @@
     @media (max-width: 991px) {
     .navbar-header {
         float: none;
+
+
     }
     .navbar-toggle {
         display: block;
@@ -29,7 +31,6 @@
     .navbar-nav {
         float: none!important;
         margin: 7.5px -15px;
-        background-color:#000000;
     }
     .navbar-nav>li {
         float: none;
@@ -41,6 +42,7 @@
     .navbar-text {
         float: none;
         margin: 15px 0;
+        color: black;
     }
     /* since 3.1.0 */
     .navbar-collapse.collapse.in { 
@@ -52,12 +54,10 @@
 }
   </style>
 </head>
-<body>
-    <a class="navbar-brand" href="{% url 'shop:product_list' %}" style="color: #ffffff">FoodPat.com</a>
-  </div>
+<body style="color:#FFF;">
 
 <div class="navbar navbar-default navbar-fixed-top">
- <div class="navbar-header"><a class="navbar-brand" href="#">FoodPat</a>
+ <div class="navbar-header"><a class="navbar-brand" href="{% url 'shop:product_list' %}">FoodPat</a>
 
       <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span>
