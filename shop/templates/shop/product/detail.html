@@ -9,7 +9,7 @@
       <div class="row" style="margin-top: 6%; margin-bottom: 6%;">
 
         <div class="col-xs-12 col-lg-8">
-                        <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." style="height: 500px; width: 600px;">
+                        <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.jpg' %} {% endif %}" alt="..." class=".img-fluid" alt="..." style="max-width: 100%; height: auto; ">
 
         </div>
                <div class="col-lg-4 col-xs-12 text-center" style="margin-top:6%;">
