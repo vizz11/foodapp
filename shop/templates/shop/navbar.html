@@ -18,8 +18,7 @@
       <a class="navbar-brand" href="href="{% url 'shop:product_list' %}"">FoodPat</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+      <li><a href="#" class="dropdown-toggle navbar-right" data-toggle="dropdown" style="color: #000000;">{{ request.user.name }}</a>
         <ul class="dropdown-menu">
           {% if request.user.is_authenticated %}
         <li><a href="#" class="dropdown-toggle navbar-right" data-toggle="dropdown" style="color: #000000;">{{ request.user.name }}</a></li>
@@ -29,7 +28,8 @@
         <li><a href="{% url 'login' %}">Login</a></li>
         <li><a href="{% url 'register' %}">Register</a></li>
         {% endif %}
-    </ul>
+    </ul></li>
+      </ul>
   </div>
 </nav>
 </body>
